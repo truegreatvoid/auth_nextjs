@@ -26,10 +26,10 @@ export function LoginForm() {
       if (!res.ok) throw new Error("Login inválido");
 
       const data = await res.json();
-      await setSessionCookie(data.access); // salva cookie via server action
+      await setSessionCookie(data.access);
 
       router.push("/dashboard");
-    } catch (err) {
+    } catch {
       setError("E-mail ou senha inválidos");
     }
   }
